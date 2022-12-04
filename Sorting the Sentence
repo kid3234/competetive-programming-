@@ -1,0 +1,45 @@
+class Solution {
+    
+    static int select(List<Integer> a ,int j) {
+		int r=0, s=a.get(j-1);
+		for(int i=j;i<a.size();i++) {
+			if(a.get(i)<s) {
+				s=a.get(i);
+				r=i;
+			}
+			
+		}
+		
+		return r;
+	}
+    public String sortSentence(String s) {
+        
+            String[] a=s.split(" ");
+	int n=a.length;
+	List<Integer> k =new ArrayList();
+		for(int i=0;i<a.length;i++) {
+			String temp = a[i];
+			int b=temp.charAt(temp.length()-1) - '0';
+			temp =temp.substring(0, temp.length()-1);
+			a[i]=temp;
+		    k.add(b);
+		}
+	for(int i=0;i<n;i++) {
+		int e =k.get(i);
+		String s1=a[i];
+		int b=select(k,i+1);
+		if(b==0) {
+			continue;
+		}
+		k.set(i, k.get(b));
+		k.set(b,e);
+		a[i]=a[b];
+		a[b]=s1;
+		
+	}
+        
+	return String.join(" ",a);
+        
+    }
+   
+}
