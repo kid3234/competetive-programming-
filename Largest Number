@@ -1,0 +1,35 @@
+class Solution {
+    public static String  largestNumber(int[] nums) {
+        long total=0;
+        for(int a=0;a<nums.length;a++){
+           total +=nums[a];
+        }
+        if(total==0){
+            return "0";
+        }else{
+                for(int j=0;j<nums.length;j++){
+                for(int i=0;i<nums.length;i++){
+                        if(i!=nums.length-1){
+                                String s1=""+nums[i]+nums[i+1];
+                            String s2=""+nums[i+1]+nums[i];
+                            if(Long.parseLong(s1)<Long.parseLong(s2)){
+                                int t=nums[i];
+                                nums[i]=nums[i+1];
+                                nums[i+1]=t;
+                            }
+                    }
+                }
+            }
+            String num="";
+            for(int k=0;k<nums.length;k++) {
+                
+                num +=nums[k];
+            }
+            return num;
+        }
+        
+		 
+         
+	       
+             
+}}
