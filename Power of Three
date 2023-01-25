@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool isPowerOfThree(double n) {
+        double r =n/3.0;
+    if(n==0){
+        return false;
+    }else if(n==1 ||r==1 ){return true;}
+    else if(r<3){return false;}    
+    else {
+     
+    return isPowerOfThree(r);
+    }
+    }
+};
