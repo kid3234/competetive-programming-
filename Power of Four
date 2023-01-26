@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool isPowerOfFour(double n) {
+           double r =n/4.0;
+    if(n==0){
+        return false;
+    }else if(n==1 ||r==1 ){return true;}
+    else if(r<4){return false;}    
+    else {
+     
+    return isPowerOfFour(r);
+    }
+    }
+};
