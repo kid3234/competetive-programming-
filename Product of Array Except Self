@@ -1,0 +1,28 @@
+class Solution {
+  public int[] productExceptSelf(int[] nums) {
+        int[] op = new int[nums.length];
+        boolean zero=false;
+        int res=1;
+        int index=0;
+        for(int i=0;i<nums.length;i++) {        
+            if(nums[i]==0) {
+                if(zero) {
+                    return op;
+                }
+                zero=true;
+                index=i;
+            } else {
+                res=res*nums[i];    
+            }
+            
+        }
+        if(zero) {
+         op[index]=res;   
+        } else { 
+            for(int i=0;i<nums.length;i++) {
+                op[i]=res/nums[i];
+            }
+        }
+        return op;
+    }
+}
