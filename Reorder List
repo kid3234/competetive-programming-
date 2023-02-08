@@ -1,0 +1,23 @@
+class Solution {
+   public void reorderList(ListNode head) {
+  Stack<ListNode> s=new Stack<>();
+    ListNode curr=head; 
+    int c=0;
+    while(curr!=null)
+    {
+        s.push(curr);   
+        curr=curr.next;
+        c++;          
+    }
+   curr=head;          
+    for(int i=0;i<(c/2);i++)     
+    {
+        ListNode temp=curr.next; 
+        ListNode end=s.pop();    
+        curr.next=end;           
+        end.next=temp;           
+        curr=temp;               
+    }
+    curr.next=null;
+}
+}
